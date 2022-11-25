@@ -16,6 +16,7 @@ export default defineConfig({
 			'src/pages/index.astro',
 		])],
 	output: 'server',
+	server: (command) => ({ port: command === 'dev' ? 3000 : 80, host: command === 'dev' ? false : '0.0.0.0' }),
 	adapter: node({
 		mode: 'standalone',
 	}),
