@@ -1,0 +1,65 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header title={SITE_TITLE} />
+		<main>
+			<h1>Hello, Hybrid build!</h1>
+			<p>
+				This is a test example to demonstrate a hack to get some sort of hybrid build going for server based astro projects. 
+				There is a much more indepth and intelligent RFC ongoing that aims to achieve similar means. Check it out <a href="https://github.com/withastro/rfcs/pull/362">here!</a>
+			</p>
+			<p>
+				This is just for fun and I have no idea the side effects yet. I plan to wait till the official hybrid feature to be released to use any of this in prod.
+				But if you are curious like me feel free to pull this down and play with what interacting with a build with both server and static files served up.
+			</p>
+			<p>
+				You can check out what I did to do this inside the package.json and _hybrid_hack file areas. But in short I have it building twice.
+				First as the server and then as a static page. The static page astro config is located in _hybrid_hack folder but it mostly piggybacks off the main config.
+			</p>
+			<p>
+				To build for yourself follow this list:
+			</p>
+			<ul>
+				<li>Grab the project off github: <a href="https://github.com">Link</a></li>
+				<li>Open terminal inside the project and run <code>npm run install</code></li>
+				<li>Then after that finishes run <code>npm run buildHybrid</code></li>
+				<li>Finally run <code>node ./dist/server/entry.mjs</code></li>
+			</ul>
+			<p>
+				Now you are up and running!
+			</p>
+			<h3>Configuration</h3>
+			<p>
+				Inside the base astro.config.mjs file you will find the HybridBuild integration. Inside here you will find an array of paths that
+				tell the integration which paths to make static. If a path or file is not listed here it falls back to the server generated version. 
+				It is important to note this is not related to any particular way discussed in the official RFC. It's just a quick and dirty way to 
+				get something working.
+			</p>
+			<h3>Notes</h3>
+			<p>
+				Currently all pages in this project are setup to be served static except for an api endpoint. Which you normally only do in server land.
+			</p>
+			<p>
+				Check out that api endpoint at path <code>/api/cat-facts</code> or <a href="/api/cat-facts">here</a>. This api response will grab a 
+				new response from the catfacts public api on each page load. 
+			</p>
+			<p>
+				It's doing server stuff with the astro node integration. Other server integrations will build out the dist folder differently and likely 
+				not work out of the box with this. If you want to try those you can specify the outDir of the static build in <code>_hybrid_hack/astro-static.config.mjs</code>
+			</p>
+			<h5>
+				<p>Cheers! ~ JTownBlast</p>
+			</h5>
+		</main>
+	</body>
+</html>
