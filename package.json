@@ -10,7 +10,8 @@
     "buildStaticOverrideHack": "astro build --config _hybrid_hack/astro-static.config.mjs",
     "buildHybrid":"npm run build && npm run buildStaticOverrideHack",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "serve": "node ./dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^0.12.0",
