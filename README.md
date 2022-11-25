@@ -12,7 +12,7 @@ You can check out what I did to do this inside the package.json and \_hybrid\_ha
 
 To build for yourself follow this list:
 
-*   Grab the project off github: [Link](https://github.com)
+*   Grab the project off github: [Link](https://github.com/JTBroad/astro-hybrid-build-hack)
 *   Open terminal inside the project and run `npm run install`
 *   Then after that finishes run `npm run buildHybrid`
 *   Finally run `node ./dist/server/entry.mjs`
@@ -27,7 +27,7 @@ Inside the base astro.config.mjs file you will find the HybridBuild integration.
 
 Currently all pages in this project are setup to be served static except for an api endpoint. Which you normally only do in server land.
 
-Check out that api endpoint at path `/api/cat-facts` or [here](/api/cat-facts). This api response will grab a new response from the catfacts public api on each page load.
+Check out that api endpoint at path `/api/cat-facts` or [here](https://astro-hybrid.jtownblast.com/api/cat-facts). This api response will grab a new response from the catfacts public api on each page load.
 
 It's doing server stuff with the astro node integration. Other server integrations will build out the dist folder differently and likely not work out of the box with this. If you want to try those you can specify the outDir of the static build in `_hybrid_hack/astro-static.config.mjs`
 
