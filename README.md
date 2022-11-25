@@ -4,6 +4,9 @@ Hacky way to get a hybrid build out of a Astro server configuration.
 Hello, Hybrid build!
 ====================
 
+<a href="https://astro-hybrid.jtownblast.com/">Demo</a>
+
+
 This is a test example to demonstrate a hack to get some sort of hybrid build going for server based astro projects. There is a much more indepth and intelligent RFC ongoing that aims to achieve similar means. Check it out [here!](https://github.com/withastro/rfcs/pull/362)
 
 This is just for fun and I have no idea the side effects yet. I plan to wait till the official hybrid feature to be released to use any of this in prod. But if you are curious like me feel free to pull this down and play with what interacting with a build with both server and static files served up.
